@@ -4,19 +4,19 @@ CPU temperature monitoring is vital for administering a system, especially when 
 
 ## Retrieving CPU temperature
 
-First of all, you need to get access to a terminal on your Raspberry Pi by creating an `SSH` connection to it, or by executing `LXTerminal` application. Then run the following command to view CPU temperature:
+First of all, you need to get access to a terminal on your Raspberry Pi. This can be done by creating an `SSH` connection to it, or by executing `LXTerminal` application while using Graphic User Interface. Now, run the following command:
 ```bash
 /opt/vc/bin/vcgencmd measure_temp
 ```
 
-Output:
+Example output:
 ```bash
 temp=40.6'C
 ```
 
 ## Create a Shell script that prints temperature to console
 
-A shell script is a computer program that contains commands otherwise executed one-by-one by a shell (i.e. Bash), known also as a command-line interface/interpreter (CLI).
+A shell script is a computer program that contains commands otherwise executed one-by-one by a shell (i.e. Bash), also known as a command-line interface/interpreter (CLI).
 
 During this tutorial, two shell scripts will be developed.
 
@@ -41,12 +41,12 @@ echo ${TEMP_VALUE}
 
 What it does:
   - `TEMP_READING`: A variable that is assigned the output of the command retrieving CPU temperature (i.e `temp=40.6'C`). In Bash, $(_\<command\>_) is replaced with the output of _\<command\>_.
-  - `TEMP_VALUE`: A variable that is assigned the numerical value of the temperature (i.e. `40.6`). This is done by using string manipulation. In Bash `${str:pos:len}` extracts `len` characters from string `str`, starting at position `pos`.
+  - `TEMP_VALUE`: A variable that is assigned the numerical value of the temperature (i.e. `40.6`). This is done using string manipulation. In Bash, `${str:pos:len}` extracts a substring of `len` characters from string `str`, starting at position `pos`.
   - `echo`: A command that prints the contents of `TEMP_VALUE` variable to console.
 
 As you can see, when assigning a value to a variable only the name of the variable is used. On the other hand, using the `$` symbol is required to retrieve the value of a variable. `$MYVAR` has the same effect as `${MYVAR}`.
 
-You can test the code above by storing it to a file (i.e. `get_temp.sh`) and executing it by running: `./get_temp.sh`. If you encounter a `Permission denied` message, run `chmod 700 get_temp.sh` before executing the script again.
+To test the code above store it in a file (i.e. `get_temp.sh`) and execute it by running: `./get_temp.sh`. If you encounter a `Permission denied` message, run `chmod 700 get_temp.sh` before executing again.
 
 ## Create a Round Robin Database
 
@@ -140,7 +140,7 @@ Documentation of `rrdtool graph` can be found [here](http://oss.oetiker.ch/rrdto
 
 Running `echo "Hello World"` will print **Hello World** to console. In Bash, you can redirect that output to a file.
 
-Executing `echo "Hello Raspberry Pi fans!" > hello.txt` will create file **hello.txt** and it's contents will be set to match **Hello Raspberry Pi fans!**. If the file already exists, it will be truncated. Similarily, you can create an HTML file by `echo`-ing and redirecting output to it.
+Executing `echo "Hello Raspberry Pi fans!" > hello.txt` will create file **hello.txt** and its contents will be set to match **Hello Raspberry Pi fans!**. If the file already exists, it will be truncated. Similarily, you can create an HTML file by `echo`-ing and redirecting output to it.
 
 Another way of redirecting output to a file is the following:
 
@@ -276,11 +276,11 @@ Assuming that you saved the two shell scripts found above in `/root/bin` directo
 * * * * * /root/bin/log-cputemp.sh
 * * * * * /root/bin/graph-cputemp.sh
 ```
-in order for both scripts to be executed every minute.
+in order for both scripts to be executed every minute. Save changes and exit.
 
 ## Monitoring temperature through a browser
 
-First you need to now the IP address of your Raspberry Pi by running `hostname -I`.
+First, you need to now the IP address of your Raspberry Pi by running `hostname -I`.
 
 Example output: 
 ```bash
@@ -305,7 +305,7 @@ Currently, everything is stored under `/var/www/html/cpu-temp`.
 
 You are free to modify the directory paths at your discretion, as long as `WWW_DATA` begins with the `/var/www/html` prefix.
 
-This happens because `/var/www/html` is Apache's `DocumentRoot`. To put it simply, if you request `http://192.168.1.16/page.html`, Apache will respond with the contents of `/var/www/html/page.html`.
+This happens because `/var/www/html` is the `DocumentRoot` of Apache. To put it simply, if you request `http://192.168.1.16/page.html`, Apache will respond with the contents of `/var/www/html/page.html`.
 
 More information on `apache2` can be found [here](https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md).
 
