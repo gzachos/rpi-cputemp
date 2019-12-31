@@ -262,8 +262,8 @@ In function body, refering to parameters is done by `$` followed by a number (i.
 ## Bringing it all together
 
 Bringing all the stuff you learned together, results to the following shell scripts:
-  - [log-cputemp.sh](./code/log-cputemp.sh)
-  - [graph-cputemp.sh](./code/graph-cputemp.sh)
+  - [log-cputemp.sh](https://github.com/gzachos/rpi-cputemp/blob/master/code/log-cputemp.sh)
+  - [graph-cputemp.sh](https://github.com/gzachos/rpi-cputemp/blob/master/code/graph-cputemp.sh)
 
 ## Execution using Crontab
 
@@ -292,7 +292,7 @@ In this case the webpage URL you should visit is: `http://192.168.1.16/cpu-temp`
 
 ## What next?
 
-While taking a look at [log-cputemp.sh](./code/log-cputemp.sh) and [graph-cputemp.sh](./code/graph-cputemp.sh) you may have noticed that in `main` function there are the following two variables declared: 
+While taking a look at [log-cputemp.sh](https://github.com/gzachos/rpi-cputemp/blob/master/code/log-cputemp.sh) and [graph-cputemp.sh](https://github.com/gzachos/rpi-cputemp/blob/master/code/graph-cputemp.sh) you may have noticed that in `main` function there are the following two variables declared: 
 ```bash
 WWW_DATA="/var/www/html/cpu-temp"
 RRD_DATA="/var/www/html/cpu-temp"
