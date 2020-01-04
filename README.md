@@ -26,7 +26,7 @@ You will need nothing more than your Raspberry Pi and the usual peripherals.
 - [Worksheet](worksheet.md)
 
 ## Developer
-[George Z. Zachos](http://cse.uoi.gr/~gzachos/)
+[George Z. Zachos](https://gzachos.com)
 
 ## License
-[GNU GENERAL PUBLIC LICENSE // Version 2, June 1991](LICENSE)
+[GNU GENERAL PUBLIC LICENSE Version 2, June 1991](LICENSE)
